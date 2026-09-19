@@ -229,7 +229,7 @@ function initGenieControls() {
   arSel.innerHTML = "";
   ASPECT_RATIOS.forEach(ar => {
     const o = document.createElement("option");
-    o.value = ar; o.textContent = "Aspect " + ar;
+    o.value = ar; o.textContent = `${ar} — ${ASPECT_ORIENTATION[ar]}`;
     arSel.appendChild(o);
   });
   arSel.value = "4:5";
@@ -257,6 +257,7 @@ function buildStack(character, choices, toolKey, aspect) {
 
   const positive = [
     `Hyper-realistic professional photograph of the same person described below, ${choices.pose}, ${choices.expression}.`,
+    `Image format: ${aspect} aspect ratio — ${ASPECT_ORIENTATION[aspect] || aspect}. Frame the composition for this shape, do not crop to a different ratio.`,
     ``,
     `[CHARACTER DNA — LOCKED, MUST MATCH EXACTLY EVERY TIME]`,
     character.dna,

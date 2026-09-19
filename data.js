@@ -188,6 +188,17 @@ const TOOL_FORMATS = {
 
 const ASPECT_RATIOS = ["4:5", "3:4", "9:16", "1:1", "16:9"];
 
+/* Only Midjourney's --ar flag is machine-read; every other tool only sees
+   whatever's written in plain English, so the chosen aspect ratio has to be
+   spelled out in the prompt body itself or it gets silently ignored. */
+const ASPECT_ORIENTATION = {
+  "4:5": "portrait, slightly taller than wide",
+  "3:4": "portrait, slightly taller than wide",
+  "9:16": "tall vertical portrait, phone-screen / Story shape",
+  "1:1": "square",
+  "16:9": "wide horizontal landscape"
+};
+
 /* Some AI image tools do a dumb substring match for NSFW filtering and flag
    words like "nude" even when used as an innocuous makeup/color term (e.g.
    "nude lipstick"). Safe Mode swaps these for equivalent wording so the
