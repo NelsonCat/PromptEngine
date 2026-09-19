@@ -117,6 +117,12 @@
         <div class="control-row">
           <select id="selTool"></select>
           <select id="selAspect"></select>
+        </div>
+        <div class="aspect-tip">Tip: some tools (like Gemini) have their own aspect ratio / size setting in the UI — set it there too, since not every tool reliably reads aspect ratio from prompt text alone.</div>
+
+        <textarea id="customPromptInput" class="custom-prompt-input" rows="2" placeholder="Add your own prompt / extra details (optional) — e.g. holding a latte, laughing at something off-camera, wind in her hair..."></textarea>
+
+        <div class="control-row">
           <button class="primary-btn wide" id="surpriseBtn">🎲 Surprise Me</button>
           <button class="secondary-btn wide" id="generateBtn">✨ Generate Stack</button>
         </div>

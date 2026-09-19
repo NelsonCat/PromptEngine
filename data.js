@@ -2,68 +2,68 @@
 
 const CHARACTERS = [
   {
-    id: "maya",
-    name: "Maya",
+    id: "aiko",
+    name: "Aiko",
     gender: "female",
     avatarColor: "#e0795a",
-    vibe: "warm, approachable, editorial-casual",
-    dna: `A 26-year-old Brazilian-Japanese woman. Oval face with a soft angular jawline and high cheekbones. Almond-shaped dark brown eyes with warm hazel flecks, natural slightly hooded eyelids, straight medium-thick eyebrows. Small straight nose with a slightly rounded tip. Full lips in a natural rose-nude tone with a subtle cupid's bow. Warm olive skin tone with fine visible pores and light natural freckles across the nose and cheeks; one small mole just above the left lip corner. Long glossy dark brown hair with soft face-framing layers, usually worn down or in a loose low bun. Athletic-slim build, 5'6".`
+    vibe: "warm, soft-glow, girl-next-door",
+    dna: `A 25-year-old Japanese woman. Oval face with a softly rounded jawline. Monolid dark brown eyes with a gentle downward tilt, straight thin eyebrows. Small straight nose with a delicate rounded tip. Full lips in a soft beige-pink tone with a subtle cupid's bow. Fair skin tone with a soft matte finish and fine visible pores; a small mole just beneath the right eye. Straight jet-black hair in a blunt bob with soft bangs. Petite-slim build, 5'2".`
   },
   {
-    id: "sofia",
-    name: "Sofia",
-    gender: "female",
-    avatarColor: "#c74e6b",
-    vibe: "glam, confident, golden-hour",
-    dna: `A 29-year-old Spanish-Colombian woman. Heart-shaped face, defined cheekbones, softly pointed chin. Large round dark brown eyes with long natural lashes, thick arched eyebrows. Straight nose with a narrow bridge. Full, well-defined lips in a deep berry-nude tone, faint natural asymmetry in the smile. Warm caramel skin tone with a natural sheen and visible fine pores; a small beauty mark on the right cheekbone. Thick wavy chestnut-brown hair past the shoulders with subtle honey highlights. Curvy-athletic build, 5'5".`
-  },
-  {
-    id: "elena",
-    name: "Elena",
+    id: "hana",
+    name: "Hana",
     gender: "female",
     avatarColor: "#7a6bd0",
-    vibe: "soft, natural, girl-next-door",
-    dna: `A 24-year-old Eastern European (Polish) woman. Round-oval face, soft jawline. Light blue-grey eyes, downturned almond shape, thin natural blonde eyebrows a shade darker than her hair. Small upturned nose with light freckling across the bridge. Medium lips in a soft pink tone, slight overbite giving a natural smile. Fair skin tone that flushes easily at the cheeks, visible fine skin texture and peach fuzz in natural light. Straight ash-blonde hair, shoulder length with a center part. Slim build, 5'4".`
+    vibe: "quiet-cool, minimalist, moody-light",
+    dna: `A 28-year-old Japanese woman. Long oval face, softly defined jawline. Deep-set dark brown eyes with natural double eyelids, straight full eyebrows. Straight nose with a narrow bridge. Medium lips in a muted mauve-rose tone. Warm ivory skin tone with fine natural texture and visible pores; a faint scar near the outer edge of the left eyebrow. Long straight dark brown hair past the shoulders with a center part. Slim build, 5'5".`
   },
   {
-    id: "zara",
-    name: "Zara",
+    id: "haruto",
+    name: "Haruto",
+    gender: "male",
+    avatarColor: "#2f6fa8",
+    vibe: "rugged, easygoing, street-casual",
+    dna: `A 30-year-old Japanese man. Square face with a defined jawline and light stubble. Monolid dark brown eyes, straight thick eyebrows. Straight nose with a medium bridge. Thin-medium lips, neutral composed expression. Fair-tan skin tone with visible pore texture and natural sun-worn skin; a small mole on the side of the neck. Short black hair in a textured crop, slightly longer on top. Lean-athletic build, 5'9".`
+  },
+  {
+    id: "yuna",
+    name: "Yuna",
+    gender: "female",
+    avatarColor: "#d99a2b",
+    vibe: "glam, bright, K-beauty editorial",
+    dna: `A 24-year-old Korean woman. Heart-shaped face, soft jawline, high cheekbones. Large round dark brown eyes with natural double eyelids, straight thin eyebrows. Small straight nose. Full lips in a soft coral-pink tone. Fair porcelain skin tone with a natural dewy finish and fine visible pores; a small cluster of light freckles across the nose. Long straight black hair with soft layers and side-swept bangs. Slim build, 5'4".`
+  },
+  {
+    id: "jiwoo",
+    name: "Ji-woo",
     gender: "female",
     avatarColor: "#3f9e7d",
     vibe: "bold, street, high-energy",
-    dna: `A 25-year-old Ethiopian-American woman. Long oval face, strong defined cheekbones, angular jawline. Deep brown almond-shaped eyes with a slight upward tilt, high-arched full eyebrows. Straight narrow nose. Full lips with a defined cupid's bow in a deep plum-nude tone. Rich deep brown skin tone with a natural matte-satin finish and visible pore texture; a faint scar through the outer edge of the left eyebrow. Very short natural coily black hair, tapered sides. Tall athletic build, 5'9".`
+    dna: `A 27-year-old Korean woman. Oval face, angular jawline. Almond-shaped monolid eyes, thick straight eyebrows. Straight nose with a narrow bridge. Full lips in a deep rose tone with a sharply defined cupid's bow. Warm beige skin tone with a natural matte finish and visible pore texture; a small mole just above the lip. Short blunt-cut black bob. Athletic build, 5'6".`
   },
   {
-    id: "priya",
-    name: "Priya",
-    gender: "female",
-    avatarColor: "#d99a2b",
-    vibe: "elegant, editorial, warm-toned",
-    dna: `A 27-year-old Indian woman. Oval face, softly defined jaw. Large dark brown eyes with a deep-set almond shape and naturally thick long lashes, full straight eyebrows. Slightly aquiline nose. Full lips in a warm terracotta-nude tone. Warm wheatish-brown skin tone with a natural dewy finish and fine visible pores; a small nose stud (left nostril) and a faint birthmark on the right jawline. Long thick straight-to-wavy black hair usually worn in a low braid or loose over one shoulder. Slim-average build, 5'5".`
-  },
-  {
-    id: "luca",
-    name: "Luca",
-    gender: "male",
-    avatarColor: "#2f6fa8",
-    vibe: "rugged, easygoing, outdoorsy",
-    dna: `A 30-year-old Italian-Brazilian man. Square face with a strong defined jawline, slight cleft chin. Deep-set hazel-green eyes, straight thick eyebrows. Straight nose with a slightly wide bridge. Medium lips, neutral resting expression with a faint asymmetric smirk. Olive skin tone with visible pores and light natural sun texture; short stubble along the jaw, a small scar through the right eyebrow. Short dark brown wavy hair, textured on top, fading at the sides. Athletic build, 6'0".`
-  },
-  {
-    id: "jordan",
-    name: "Jordan",
+    id: "minjun",
+    name: "Min-jun",
     gender: "male",
     avatarColor: "#4a7a3f",
     vibe: "clean, corporate-casual, approachable",
-    dna: `A 28-year-old Black American man. Oval face, softly rounded jawline. Warm dark brown eyes, medium almond shape, straight full eyebrows. Broad straight nose. Medium-full lips with a relaxed natural smile showing a slight gap in the front teeth. Deep brown skin tone with a natural matte finish and visible pore texture; low, neatly lined-up fade haircut, short black hair. Clean-shaven with sharp jaw definition. Lean-athletic build, 5'11".`
+    dna: `A 26-year-old Korean man. Oval face, softly angular jawline. Monolid dark brown eyes, straight thick eyebrows. Straight nose. Medium lips with a relaxed natural smile. Fair skin tone with a smooth matte finish and visible pore texture; a faint scar through the outer edge of the right eyebrow. Short black hair, textured on top with faded sides. Slim-athletic build, 5'10".`
   },
   {
-    id: "kenji",
-    name: "Kenji",
+    id: "mei",
+    name: "Mei",
+    gender: "female",
+    avatarColor: "#c74e6b",
+    vibe: "elegant, editorial, soft-lit",
+    dna: `A 29-year-old Chinese woman. Oval face with softly defined cheekbones. Almond-shaped dark brown eyes, straight medium eyebrows. Straight nose with a delicate bridge. Full lips in a soft berry-mauve tone. Warm ivory skin tone with a natural sheen and fine visible pores; a small beauty mark near the outer corner of the left eye. Long straight black hair reaching mid-back, center part. Slim build, 5'5".`
+  },
+  {
+    id: "wei",
+    name: "Wei",
     gender: "male",
     avatarColor: "#8a5a44",
-    vibe: "quiet-cool, minimalist, moody-light",
-    dna: `A 26-year-old Japanese man. Oval-narrow face, subtle angular jaw. Monolid dark brown eyes, straight thin-medium eyebrows. Straight narrow nose. Thin-medium lips, neutral composed expression. Fair-to-medium skin tone with a smooth natural texture and visible pores at close range; a small mole below the left eye. Straight black hair, slightly longer on top and swept to one side. Slim build, 5'8".`
+    vibe: "quiet confidence, minimalist, moody",
+    dna: `A 31-year-old Chinese man. Square-oval face with a strong jawline. Deep-set dark brown eyes, straight thick eyebrows. Straight nose with a wide bridge. Medium lips, calm composed expression. Tan-olive skin tone with visible pore texture and light natural stubble. Short black hair with a clean side part. Athletic build, 6'0".`
   }
 ];
 
@@ -197,6 +197,17 @@ const ASPECT_ORIENTATION = {
   "9:16": "tall vertical portrait, phone-screen / Story shape",
   "1:1": "square",
   "16:9": "wide horizontal landscape"
+};
+
+/* Explicit pixel dimensions give text-only models something more concrete
+   to latch onto than a bare ratio — helps on tools that otherwise default
+   to their own square/landscape output regardless of what the text says. */
+const ASPECT_DIMENSIONS = {
+  "4:5": "1024x1280",
+  "3:4": "1024x1365",
+  "9:16": "1080x1920",
+  "1:1": "1024x1024",
+  "16:9": "1920x1080"
 };
 
 /* Some AI image tools do a dumb substring match for NSFW filtering and flag

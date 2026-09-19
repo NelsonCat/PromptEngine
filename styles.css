@@ -230,6 +230,15 @@ body {
   color: var(--text); padding: 10px 12px; border-radius: 10px; font-size: 13px;
 }
 
+.aspect-tip { color: var(--text-dim); font-size: 12px; line-height: 1.4; margin-top: -2px; }
+
+.custom-prompt-input {
+  width: 100%; background: var(--bg-elev); border: 1px solid var(--border);
+  color: var(--text); border-radius: 10px; padding: 10px 12px; font-size: 13px;
+  font-family: inherit; resize: vertical; min-height: 44px;
+}
+.custom-prompt-input:focus { outline: none; border-color: var(--accent); }
+
 .stack-block { margin-bottom: 16px; }
 .stack-label {
   display: flex; justify-content: space-between; align-items: center;

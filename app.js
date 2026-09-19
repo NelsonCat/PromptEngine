@@ -255,9 +255,11 @@ function buildStack(character, choices, toolKey, aspect) {
   const shuffledBoosters = [...REALISM_BOOSTERS].sort(() => Math.random() - 0.5).slice(0, 4);
   boosters.push(...shuffledBoosters);
 
-  const positive = [
+  const dims = ASPECT_DIMENSIONS[aspect] || "";
+  const lines = [
+    `OUTPUT ASPECT RATIO: ${aspect} (${ASPECT_ORIENTATION[aspect] || aspect})${dims ? `, approx. ${dims}px` : ""}. This is a mandatory output requirement — generate and crop the entire image to exactly this shape, not square or landscape by default.`,
+    ``,
     `Hyper-realistic professional photograph of the same person described below, ${choices.pose}, ${choices.expression}.`,
-    `Image format: ${aspect} aspect ratio — ${ASPECT_ORIENTATION[aspect] || aspect}. Frame the composition for this shape, do not crop to a different ratio.`,
     ``,
     `[CHARACTER DNA — LOCKED, MUST MATCH EXACTLY EVERY TIME]`,
     character.dna,
@@ -267,7 +269,11 @@ function buildStack(character, choices, toolKey, aspect) {
     `Camera: ${choices.camera}.`,
     ``,
     `Realism: ${boosters.join(", ")}.`
-  ].join("\n");
+  ];
+  if (choices.custom && choices.custom.trim()) {
+    lines.push(``, `Additional details: ${choices.custom.trim()}`);
+  }
+  const positive = lines.join("\n");
 
   const toolSuffix = toolKey === "midjourney" ? TOOL_FORMATS.midjourney.suffix(aspect) : TOOL_FORMATS[toolKey].suffix();
   let finalPositive = positive + (toolSuffix || "");
@@ -288,7 +294,8 @@ function generateStack(forceRandom) {
     outfit: pick(SCENARIOS.outfits, !forceRandom && document.getElementById("selOutfit").value),
     pose: pick(SCENARIOS.poses, !forceRandom && document.getElementById("selPose").value),
     expression: pick(SCENARIOS.expressions, !forceRandom && document.getElementById("selExpression").value),
-    camera: pick(SCENARIOS.cameras, !forceRandom && document.getElementById("selCamera").value)
+    camera: pick(SCENARIOS.cameras, !forceRandom && document.getElementById("selCamera").value),
+    custom: document.getElementById("customPromptInput").value
   };
   const toolKey = document.getElementById("selTool").value || "generic";
   const aspect = document.getElementById("selAspect").value || "4:5";
