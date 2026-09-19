@@ -4,7 +4,8 @@ const STORAGE_KEYS = {
   customCharacters: "pe.customCharacters",
   activeCharacterId: "pe.activeCharacterId",
   favorites: "pe.favorites",
-  planner: "pe.planner"
+  planner: "pe.planner",
+  safeMode: "pe.safeMode"
 };
 
 function load(key, fallback) {
@@ -23,6 +24,7 @@ let customCharacters = load(STORAGE_KEYS.customCharacters, []);
 let activeCharacterId = load(STORAGE_KEYS.activeCharacterId, null);
 let favorites = load(STORAGE_KEYS.favorites, []);
 let planner = load(STORAGE_KEYS.planner, Array(30).fill(null));
+let safeMode = load(STORAGE_KEYS.safeMode, true);
 
 function allCharacters() {
   return [...CHARACTERS, ...customCharacters];
@@ -267,7 +269,8 @@ function buildStack(character, choices, toolKey, aspect) {
   ].join("\n");
 
   const toolSuffix = toolKey === "midjourney" ? TOOL_FORMATS.midjourney.suffix(aspect) : TOOL_FORMATS[toolKey].suffix();
-  const finalPositive = positive + (toolSuffix || "");
+  let finalPositive = positive + (toolSuffix || "");
+  if (safeMode) finalPositive = sanitizePrompt(finalPositive);
 
   return { positive: finalPositive, negative: NEGATIVE_PROMPT_BASE };
 }
@@ -458,9 +461,27 @@ document.getElementById("clearPlannerBtn").addEventListener("click", () => {
   renderPlanner();
 });
 
+/* ---------- Safe Mode toggle ---------- */
+
+function updateSafeModeUI() {
+  document.getElementById("safeModeToggle").checked = safeMode;
+  document.getElementById("safeModeTitle").textContent = safeMode ? 'Safe Mode — ON' : 'Standard Mode — natural language';
+  document.getElementById("safeModeSub").textContent = safeMode
+    ? 'Swaps ambiguous words (like "nude" used as a color term) so prompts don\'t get false-flagged by an image generator\'s NSFW filter.'
+    : 'Uses natural photography/beauty wording as-is (e.g. "nude lipstick"). Some AI tools\' keyword filters may false-flag this — switch Safe Mode back on if you hit that.';
+}
+
+document.getElementById("safeModeToggle").addEventListener("change", (e) => {
+  safeMode = e.target.checked;
+  save(STORAGE_KEYS.safeMode, safeMode);
+  updateSafeModeUI();
+  if (document.getElementById("stackOutput").style.display !== "none") generateStack(false);
+});
+
 /* ---------- Init ---------- */
 
 initGenieControls();
 renderCharacters();
 updateActiveBadge();
+updateSafeModeUI();
 switchView("characters");

@@ -187,3 +187,19 @@ const TOOL_FORMATS = {
 };
 
 const ASPECT_RATIOS = ["4:5", "3:4", "9:16", "1:1", "16:9"];
+
+/* Some AI image tools do a dumb substring match for NSFW filtering and flag
+   words like "nude" even when used as an innocuous makeup/color term (e.g.
+   "nude lipstick"). Safe Mode swaps these for equivalent wording so the
+   prompt still reads naturally but won't trip a naive keyword filter. */
+const SAFE_WORD_REPLACEMENTS = [
+  [/rose-nude/gi, "rosy-beige"],
+  [/berry-nude/gi, "berry-mauve"],
+  [/plum-nude/gi, "muted plum"],
+  [/terracotta-nude/gi, "warm terracotta"],
+  [/\bnude\b/gi, "beige-toned"]
+];
+
+function sanitizePrompt(text) {
+  return SAFE_WORD_REPLACEMENTS.reduce((out, [pattern, replacement]) => out.replace(pattern, replacement), text);
+}
